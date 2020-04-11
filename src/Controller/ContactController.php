@@ -3,6 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
+use App\Entity\User;
+use App\Form\ContactType;
+use App\Repository\ContactRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,13 +15,13 @@ class ContactController extends AbstractController
 {
 
     /**
-     * @Route("/", name="content_index", methods={"GET"})
+     * @Route("/", name="contact_index", methods={"GET"})
      */
     public function index(ContactRepository $contactRepository): Response
     {
-       $contact = $this->getContact();
-        return $this->render('contact.html.twig', [
-            'contacts' => $contact
+        $usercurrent = $this->getUser();
+        return $this->render('contact/index.html.twig', [
+            'contacts' => $contactRepository->findBy(array('users'=> $usercurrent)),
         ]);
     }   
 
@@ -39,7 +42,7 @@ class ContactController extends AbstractController
             return $this->redirectToRoute('contact_index');
         }
         return $this->render('contact/new.html.twig', [
-            'contact' => $content,
+            'contact' => $contact,
             'form' => $form->createView(),
         ]);
     }
