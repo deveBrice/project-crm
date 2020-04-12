@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Content index{% endblock %}
+{% block title %}Contact index{% endblock %}
 {% block stylesheets %}
  {{ parent() }}
    <link rel="stylesheet" href="{{ asset('css/contact_index.css') }}" type="text/css" />
@@ -15,12 +15,12 @@
             {% if contacts is empty %}
                 <div class="error-no-records">
                   <div class="alert alert-danger error-message" role="alert">
-                    <p>No content found</p>
+                    <p>No contact found</p>
                   </div>
                 </div>
             {% endif %}
             <div class="linear-gradient">
-              <h4>Contents list</h4>
+              <h4>Contacts list</h4>
             </div>
             <div class="table-fixed">
             <table class="table table-striped">
@@ -43,8 +43,8 @@
                     <td>{{ contact.lastname }}</td>
                     <td>{{ contact.email }}</td>
                     <td>{{ contact.phoneNumber }}</td>
-                    <td>Show</td>
-                    <td>Delete</td>
+                    <td><a href="{{ path('contact_show', {'id': contact.id}) }}" class="btn btn-success create-contact-button">Show</a></td>
+                    <td> {{ include('contact/delete_form.html.twig') }}</td>
                 </tr>
                 {% endfor %}       
               </tbody>
@@ -55,8 +55,8 @@
     </div>
      <div class="row">
        <div class="col-lg-2 offset-lg-2">
-         <div class="create-content">     
-          <a href="{{ path('contact_new') }}" class="btn btn-primary create-content-button">Create content</a> 
+         <div class="create-contact">     
+          <a href="{{ path('contact_new') }}" class="btn btn-primary create-contact-button">Create contact</a> 
         </div>
       </div>
     </div>

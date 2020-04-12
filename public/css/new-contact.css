@@ -1,17 +1,17 @@
-#container-new-content {
+#container-new-contact {
     display: flex;
     text-align: center;
     background-color: #e9ecef;
     height: 685px;
 }
 
-#new-content-form {
+#new-contact-form {
     width: 100%;
     position: relative;
     z-index: 1;
 }
 
-#new-content-form a {
+#new-contact-form a {
     text-decoration: none;
 }
 
@@ -33,17 +33,17 @@ form:before {
     z-index: -1;
 }
 
-#new-content-title {
+#new-contact-title {
     border-radius: 0px;
     height: 43px;
 }
 
-#content_description {
+#contact_description {
     border-radius: 0px;
     height: 200px;
 }
 
-#content_submit {
+#contact_submit {
     width: 273px;
     border-radius: 0px;
     background: linear-gradient(to right, #43bbf2, #3144a3);
@@ -58,7 +58,7 @@ label {
     height: 100px;
 }
 
-.new-content-title h2 {
+.new-contact-title h2 {
    margin: 30px;
    font-family: 'Raleway', sans-serif;
 }
