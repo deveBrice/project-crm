@@ -33,6 +33,7 @@
                       <th>Telephone</th>
                       <th>Show</th>
                       <th>Delete</th>
+                      <th>Update</th>
                   </tr>
               </thead>
               <tbody>
@@ -45,6 +46,7 @@
                     <td>{{ contact.phoneNumber }}</td>
                     <td><a href="{{ path('contact_show', {'id': contact.id}) }}" class="btn btn-success create-contact-button">Show</a></td>
                     <td> {{ include('contact/delete_form.html.twig') }}</td>
+                    <td><a href="{{ path('contact_edit', {'id': contact.id}) }}" class="btn btn-warning">Edit</a></td>
                 </tr>
                 {% endfor %}       
               </tbody>

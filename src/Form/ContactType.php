@@ -20,6 +20,9 @@ class ContactType extends AbstractType
             ->add('submit', SubmitType::class, array(
                 'label' => 'New contact'
            ))
+           ->add('updateSubmit', SubmitType::class, array(
+            'label' => 'Update contact'
+       ))
         ;
     }
 

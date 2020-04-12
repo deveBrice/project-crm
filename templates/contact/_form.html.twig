@@ -2,19 +2,25 @@
 <section id="container-new-contact">
   <div id="new-contact-form">
     <div class="new-contact-title">
-      <h2>Create new contact</h2>
+      <h2>Create new contact and edit contact</h2>
     </div>
       <div class="container">
         <div class="row">
           <div class="col-md-6 mx-auto">
             {{ form_start(form, {'attr': {'novalidate': 'novalidate'}} ) }}
                 <div class="form-group"> {{ form_row(form.firstname, {'attr': {'class': 'form-control', 'placeholder': 'Prenom'}}) }}</div>
+                <div class="form-group"> {{ form_row(form.firstname, {'attr': {'class': 'form-control', 'placeholder': 'Prenom'}}) }}</div>
                 <div class="form-group"> {{ form_row(form.lastname, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }}</div>
                 <div class="form-group"> {{ form_row(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}</div>
                 <div class="form-group"> {{ form_row(form.phoneNumber, {'attr': {'class': 'form-control', 'placeholder': 'Telephone'}}) }}</div>
+              
                <div class="form-group">{{ form_row(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}</div>
+             
+                <div class="form-group">{{ form_row(form.updateSubmit, {'attr': {'class': 'btn btn-warning'}}) }}</div>
+               
             {{ form_end(form) }}
           </div>
+
         </div>
          <div class="row">
            <div class="col-lg-2 offset-lg-5">
