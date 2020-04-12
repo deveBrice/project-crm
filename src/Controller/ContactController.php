@@ -46,4 +46,28 @@ class ContactController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+   /**
+     * @Route("/{id}", name="contact_show", methods={"GET"})
+     */
+    public function show(Contact $contact): Response
+    {
+        return $this->render('contact/show.html.twig', [
+            'contact' => $contact,
+        ]);
+    }
+
+      /**
+     * @Route("/{id}", name="contact_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Contact $contact): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$contact->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($contact);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('contact_index');
+    }
 }

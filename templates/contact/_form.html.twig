@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway:500&display=swap" rel="stylesheet">
-<section id="container-new-content">
-  <div id="new-content-form">
-    <div class="new-content-title">
+<section id="container-new-contact">
+  <div id="new-contact-form">
+    <div class="new-contact-title">
       <h2>Create new contact</h2>
     </div>
       <div class="container">
@@ -14,6 +14,13 @@
                 <div class="form-group"> {{ form_row(form.phoneNumber, {'attr': {'class': 'form-control', 'placeholder': 'Telephone'}}) }}</div>
                <div class="form-group">{{ form_row(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}</div>
             {{ form_end(form) }}
+          </div>
+        </div>
+         <div class="row">
+           <div class="col-lg-2 offset-lg-5">
+             <div class="back-to-list">
+               <a href="{{ path('contact_index') }}">Back to list</a>
+            </div>
           </div>
         </div>
       </div>
