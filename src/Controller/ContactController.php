@@ -48,7 +48,7 @@ class ContactController extends AbstractController
     }
 
    /**
-     * @Route("/{id}", name="contact_show", methods={"GET"})
+     * @Route("show/{id}", name="contact_show", methods={"GET"})
      */
     public function show(Contact $contact): Response
     {
@@ -77,7 +77,7 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="contact_delete", methods={"DELETE"})
+     * @Route("delete/{id}", name="contact_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Contact $contact): Response
     {
