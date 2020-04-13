@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+{% block title %}Contact index{% endblock %}
+{% block stylesheets %}
+ {{ parent() }}
+   <link rel="stylesheet" href="{{ asset('css/contact_index.css') }}" type="text/css" />
+   <link href="https://fonts.googleapis.com/css?family=Raleway:500&display=swap" rel="stylesheet">
+{% endblock %}
+{% block body %}
+<div class="container-fluid pl-0">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">   
+          <div class="body-container">
+            {% if contacts is empty %}
+                <div class="error-no-records">
+                  <div class="alert alert-danger error-message" role="alert">
+                    <p>No contact found</p>
+                  </div>
+                </div>
+            {% endif %}
+            <div class="linear-gradient">
+              <h4>Contacts list</h4>
+            </div>
+            <div class="table-fixed">
+            <table class="table table-striped">
+              <thead class="thead-dark">
+                  <tr>
+                      <th>Id</th>
+                      <th>Firstname</th>
+                      <th>Lastname</th>
+                      <th>Email</th>
+                      <th>Telephone</th>
+                      <th>Show</th>
+                      <th>Delete</th>
+                      <th>Update</th>
+                  </tr>
+              </thead>
+              <tbody>
+                {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact.id }}</td>
+                    <td>{{ contact.firstname }}</td>
+                    <td>{{ contact.lastname }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.phoneNumber }}</td>
+                    <td><a href="{{ path('contact_show', {'id': contact.id}) }}" class="btn btn-success create-contact-button">Show</a></td>
+                    <td> {{ include('contact/delete_form.html.twig') }}</td>
+                    <td><a href="{{ path('contact_edit', {'id': contact.id}) }}" class="btn btn-warning">Edit</a></td>
+                </tr>
+                {% endfor %}       
+              </tbody>
+            </table>
+          </div>
+       </div>
+     </div>
+    </div>
+     <div class="row">
+       <div class="col-lg-2 offset-lg-2">
+         <div class="create-contact">     
+          <a href="{{ path('contact_new') }}" class="btn btn-primary create-contact-button">Create contact</a> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -36,6 +36,11 @@ class Contact
      */
     private $phoneNumber;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="contacts")
+     */
+    private $users;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,18 @@ class Contact
     public function setPhoneNumber(?int $phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    public function getUsers(): ?user
+    {
+        return $this->users;
+    }
+
+    public function setUsers(?user $users): self
+    {
+        $this->users = $users;
 
         return $this;
     }
