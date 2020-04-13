@@ -21,10 +21,6 @@ class ContactControllerTest extends TestCase
       $this->contact = NULL;
     }
 
-   /* public function testCreateContact() 
-    {
-      
-    }*/
 
     public function testEqualsFirstname()
     {
@@ -37,7 +33,6 @@ class ContactControllerTest extends TestCase
         $firstname = $this->contact->setFirstname('Lightning');
         $this->assertIsString($this->contact->getFirstname());
     }
-
 
 
     public function testEqualsLastname()
@@ -53,8 +48,6 @@ class ContactControllerTest extends TestCase
     }
 
 
-
-
     public function testEqualsEmail()
     {
        $email = $this->contact->setEmail('brice.william971@gmail.com');
@@ -66,15 +59,6 @@ class ContactControllerTest extends TestCase
         $email = $this->contact->setEmail('Sera@gmail.com');
         $this->assertIsString($this->contact->getEmail());
     }
-
-    /*public function testEmail(): void
-    {
-        $email = $this->contact->setEmail('Sera@gmail.com');
-        $this->assertEmailTextBodyContains('Sera@gmail.com', $this->contact->getEmail());
-    }*/
-
-
-
 
 
     public function testEqualsPhoneNumber()
@@ -89,8 +73,6 @@ class ContactControllerTest extends TestCase
         $this->assertIsInt($this->contact->getPhoneNumber());
     }
 
-
-   
 }
 
 ?>
